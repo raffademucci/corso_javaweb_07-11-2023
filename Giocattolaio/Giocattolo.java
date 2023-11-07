@@ -1,49 +1,19 @@
 package Giocattolaio;
-public class Giocattolo{
+public class Giocattolo {
+    int id;
+    String nome;
+    double prezzo;
+    int età_consigliata;
 
-
-    private static Integer id=1;
-    private String nome;
-    private double prezzo;
-    private int etaConsigliata;
-    
-    public Giocattolo(int id, String nome, double prezzo, int etaConsigliata) {
-        id++;
-        this.nome = nome;
-        this.prezzo = prezzo;
-        this.etaConsigliata = etaConsigliata;
+    public Giocattolo(int id, String nome, double prezzo, int età_consigliata){
+        this.id=id;
+        this.nome=nome;
+        this.prezzo=prezzo;
+        this.età_consigliata=età_consigliata;
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public String toString(){
+        return "Nome Giocattolo "+nome+" "+ "Prezzo: "+prezzo+" "+"Età_consigliata: "+età_consigliata;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public double getPrezzo() {
-        return prezzo;
-    }
-
-    public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
-    }
-
-    public int getEtaConsigliata() {
-        return etaConsigliata;
-    }
-
-    public void setEtaConsigliata(int etaConsigliata) {
-        this.etaConsigliata = etaConsigliata;
-    }
-
 }

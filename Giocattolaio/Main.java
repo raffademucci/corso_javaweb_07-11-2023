@@ -1,17 +1,26 @@
 package Giocattolaio;
-import java.util.List;
 import java.util.ArrayList;
+
+/**
+ * TestGiocattolaio
+ */
+
+
 public class Main {
     public static void main(String[] args) {
-        
-        List <Vendita> vendita = new ArrayList<>();
-        
-        Giocattolo g1=new Giocattolo(1, "macchinina", 12, 12);
-        Giocattolo g2=new Giocattolo(2, "pallone", 15, 18);
-        Giocattolo g3=new Giocattolo(3, "puzzle", 6, 6);
-        
-        Cliente c1=new Cliente(1, "Raffaele", "raffaeledemucci2020@gmail.com");
-        Cliente c2=new Cliente(1, "Nicola", "nicola.balducci@gmail.com");
-        Cliente c3=new Cliente(1, "Mirko", "Mirko2021@gmail.com");
+
+        ArrayList <Vendita> v=new ArrayList<>();
+        ArrayList <Giocattolo> g=new ArrayList<>();
+        ArrayList <Cliente> c=new ArrayList<>();
+
+        g.add(new Giocattolo(0, "Camion", 17.90, 4));
+        g.add(new Giocattolo(1, "Macchinetta", 11.90, 8));
+
+        c.add(new Cliente(0, "Luca", "luca@email.it"));
+        c.add(new Cliente(1, "Banana", "banana@email.it"));
+
+        v.add(new Vendita(g.get(0), c.get(1)));
+
+        System.out.println(v.toString());
     }
 }
