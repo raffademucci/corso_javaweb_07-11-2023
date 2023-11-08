@@ -1,26 +1,48 @@
 package Giocattolaio;
 import java.util.ArrayList;
-
-/**
- * TestGiocattolaio
- */
-
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Giocattolo g1 = new Giocattolo("bambola",20,3);
+        Giocattolo g2 = new Giocattolo("pistola d'acqua", 15,3);
+        Giocattolo g3 = new Giocattolo("overboard", 130, 10);
+        Giocattolo g4 = new Giocattolo("macchinina", 10, 8);
 
-        ArrayList <Vendita> v=new ArrayList<>();
-        ArrayList <Giocattolo> g=new ArrayList<>();
-        ArrayList <Cliente> c=new ArrayList<>();
+        int ritorno;
 
-        g.add(new Giocattolo(0, "Camion", 17.90, 4));
-        g.add(new Giocattolo(1, "Macchinetta", 11.90, 8));
+        Inventario inventario = new Inventario();
+        ArrayList <Giocattolo> acquisti = new ArrayList<Giocattolo>();
 
-        c.add(new Cliente(0, "Luca", "luca@email.it"));
-        c.add(new Cliente(1, "Banana", "banana@email.it"));
 
-        v.add(new Vendita(g.get(0), c.get(1)));
+        inventario.aggiungiGiocattolo(g1);
+        inventario.aggiungiGiocattolo(g2);
+        inventario.aggiungiGiocattolo(g3);
+        inventario.aggiungiGiocattolo(g4);
 
-        System.out.println(v.toString());
+        //registrazione - login;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Inserisci mail: ");
+        String mail = input.nextLine();
+        System.out.print("Inserisci nome: ");
+        String nome = input.nextLine();
+        Cliente c1 = new Cliente(nome,mail);
+        if((mail.equals("admin@gamil.com")) && (nome.equals("admin"))){
+
+            //menu per admin
+            do{
+                ritorno = Interfaccia.richiediMetodo(inventario,c1);
+
+            }while(ritorno > 0);
+
+        }else{
+
+            do{
+                ritorno = Interfaccia.metodiCliente(inventario,c1,acquisti);
+            }while(ritorno > 0);
+
+
+            
+        }
     }
 }

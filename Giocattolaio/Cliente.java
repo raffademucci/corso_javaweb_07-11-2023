@@ -3,34 +3,46 @@ package Giocattolaio;
 import java.util.Scanner;
 import java.util.List;
 public class Cliente {
+    int idIncrementato = 1;
     int id;
     private String nome;
-    private String email;
+    private String mail;
 
-    public Cliente(int id, String nome, String email){
-        this.id=id;
-        this.nome=nome;
-        this.email=email;
+    public Cliente(String nome, String mail){
+        if(!(nome.equals("")) && !(mail.equals(""))){
+
+            this.nome = nome;
+            this.mail = mail;
+            this.id = idIncrementato++;
+        }else{
+            System.out.println("Almeno uno dei campi è vuoto. ");
+        }
     }
 
-    public String getEmail() {
-        return email;
+    public int getId(){
+        return id;
     }
 
-    public String getNome() {
+    
+    public String getNome(){
         return nome;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setNome(String nome) {
+    public void setNome(String nome){
         this.nome = nome;
     }
 
+    public String getMail(){
+        return mail;
+    }
+
+    public void setMail(String mail){
+        this.mail = mail;
+    }
+    
+
     @Override
-    public String toString() {
-        return "Nome cliente: "+getNome()+" "+"Email: "+getEmail();
+    public String toString(){
+        return nome + " " + mail + " " + id;
     }
 }
