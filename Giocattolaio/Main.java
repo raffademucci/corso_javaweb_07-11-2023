@@ -39,4 +39,5 @@ public class Main {
             while (ritorno > 0);
         }
     }
+    System.out.println("Hello Word_MAIN");
 }
